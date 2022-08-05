@@ -1,10 +1,19 @@
+import attributes.Attributes;
 import characters.Character;
+import characters.classes.Mage;
 import characters.classes.Warrior;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello");
-        Warrior warrior = new Warrior("james", 2, 2,2);
-        warrior.levelUp();
+        Main obj = new  Main();
+
+       Mage mage = new Mage("Johan",1);
+        System.out.println(mage.getLevel());
+        mage.levelUp();
+        System.out.println(mage.getAttributes().getIntelligence());
+
+
+
+
     }
 }

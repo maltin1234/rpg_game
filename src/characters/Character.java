@@ -1,19 +1,40 @@
 package characters;
 
-import charlevel.Upgrade;
 
-public abstract class Character implements Upgrade {
+import attributes.Attributes;
+
+
+public abstract class Character implements CanLevel {
     private String name;
-    private int level;
-    private int primaryAttributes;
-    private int totalAttributes;
+    protected int level;
+    // no hard coded value
 
-    public Character(String name, int level, int primaryAttributes, int totalAttributes) {
-        this.name = name;
-        this.level = level;
-        this.primaryAttributes = primaryAttributes;
-        this.totalAttributes = totalAttributes;
+
+    protected Attributes attributes;
+
+
+
+    public Attributes getAttributes() {
+        return attributes;
     }
+
+    public void setAttributes(Attributes attributes) {
+        this.attributes = attributes;
+    }
+
+    public Character(String name,int level,  Attributes attributes) {
+        this.name = name;
+
+        this.level = level;
+        this.attributes = attributes;
+
+
+    }
+
+
+
+
+
 
     public String getName() {
         return name;
@@ -31,24 +52,9 @@ public abstract class Character implements Upgrade {
         this.level = level;
     }
 
-    public int getPrimaryAttributes() {
-        return primaryAttributes;
-    }
 
-    public void setPrimaryAttributes(int primaryAttributes) {
-        this.primaryAttributes = primaryAttributes;
-    }
 
-    public int getTotalAttributes() {
-        return totalAttributes;
-    }
 
-    public void setTotalAttributes(int totalAttributes) {
-        this.totalAttributes = totalAttributes;
-    }
 
-    @Override
-    public void levelUp() {
-        System.out.println("hahhaha");
-    }
+
 }
