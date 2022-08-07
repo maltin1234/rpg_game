@@ -2,6 +2,8 @@ package characters.classes;
 
 import attributes.Attributes;
 import characters.Character;
+import items.Weapon;
+import utils.Weapons;
 
 public class Mage extends Character {
     //public Attributes attributes;
@@ -11,6 +13,8 @@ public class Mage extends Character {
         super(name, level, new Attributes(1,1,8));
 
     }
+
+
 
 
     @Override
