@@ -3,6 +3,9 @@ package characters;
 
 import attributes.Attributes;
 import characters.classes.Mage;
+import characters.classes.Ranger;
+import characters.classes.Rogue;
+import characters.classes.Warrior;
 import exceptions.InvalidArmorException;
 import exceptions.InvalidWeaponException;
 import items.Armor;
@@ -46,7 +49,7 @@ public abstract class Character implements CanLevel, DisplayInterface{
 
     }
 
-    public abstract double CalculateDamage();
+
 
 // Equiping armor
     public void equipMaterial (Item item) throws InvalidArmorException {
@@ -150,4 +153,10 @@ public abstract class Character implements CanLevel, DisplayInterface{
 
     // Calculate weapon damage
         public abstract double CalculateDamage(Mage mage);
+
+    public abstract double CalculateDamage(Ranger ranger);
+
+    public abstract double CalculateDamage(Rogue rogue);
+
+    public abstract double CalculateDamage(Warrior warrior);
 }
