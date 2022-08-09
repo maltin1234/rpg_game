@@ -2,11 +2,18 @@ package characters.classes;
 
 import attributes.Attributes;
 import characters.Character;
+import items.Armor;
+import utils.Material;
+import utils.Weapons;
 
 public class Ranger extends Character {
-    public Ranger(String name, int level) {
-        super(name, level, new Attributes(1,7,1));
+
+
+    public Ranger(String name, int level, Attributes attributes, Weapons[] heroWeapons, Material[] heroMaterial) {
+        super(name, level, attributes, heroWeapons, heroMaterial);
     }
+
+
 
     @Override
     public void levelUp() {

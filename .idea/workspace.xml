@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d7c291f-5b6c-4aff-84e7-d3731727c095" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/items/ChooseWeapon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Slot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Weapons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exceptions/LowLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/items/Armor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Material.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/attributes/PrimaryAttributes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/characters/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Mage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Armor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/characters/classes/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Ranger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/characters/classes/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/characters/classes/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/ChooseWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/ChooseWeapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Weapon.java" afterDir="false" />
     </list>
@@ -23,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
         <option value="Interface" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -67,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659596210088</updated>
-      <workItem from="1659596211528" duration="49451000" />
+      <workItem from="1659596211528" duration="104783000" />
     </task>
     <servers />
   </component>

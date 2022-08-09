@@ -1,5 +1,6 @@
 package items;
 
+import attributes.Attributes;
 import characters.Character;
 import utils.Slot;
 
@@ -8,14 +9,10 @@ public abstract class Item implements ChooseWeapon {
     protected int requiredLevel;
     protected Slot requiredSlot;
 
+    protected Attributes attributes;
 
 
-
-    @Override
-    public int GetLevel() {
-        return requiredLevel;
-    }
-
+   
     @Override
     public Slot GetSlot() {
         return requiredSlot;

@@ -2,12 +2,16 @@ package characters.classes;
 
 import attributes.Attributes;
 import characters.Character;
+import items.Armor;
+import utils.Material;
+import utils.Weapons;
 
 public class Rogue extends Character {
 
-    public Rogue(String name, int level) {
-        super(name, level, new Attributes(2,6,1));
+    public Rogue(String name, int level, Attributes attributes, Material[] heroMaterial, Weapons[] heroWeapons) {
+        super(name, level, attributes, heroWeapons, heroMaterial);
     }
+
 
     @Override
     public void levelUp() {
@@ -16,5 +20,4 @@ public class Rogue extends Character {
         attributes.setStrength(attributes.getStrength() + 1 );
         attributes.setIntelligence(attributes.getIntelligence() + 1 );
     }
-
 }

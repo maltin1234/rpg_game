@@ -11,7 +11,7 @@ public class Weapon extends Item {
    private int Damage;
    private double AttackSpeed;
    private double DamagePerSecond;
-   private Weapons Type;
+   protected Weapons Type;
 
     public Weapon(String name, int requiredLevel, int damage, double attackSpeed, Weapons type) {
         super(name, requiredLevel, Slot.WEAPON);
@@ -24,12 +24,12 @@ public class Weapon extends Item {
     public boolean Equals(Weapon checker) {
 
        return name == checker.getName() &&
-               requiredLevel == checker.getRequiredLevel() &&
-               requiredSlot == checker.getRequiredSlot() &&
+               requiredLevel == checker.requiredLevel &&
+               requiredSlot.equals(checker.requiredSlot) &&
                Damage == checker.Damage &&
                AttackSpeed == checker.AttackSpeed &&
                DamagePerSecond == checker.DamagePerSecond &&
-               Type == checker.Type;
+               Type.equals(checker.Type);
 
 
 
@@ -40,14 +40,11 @@ public class Weapon extends Item {
 
     @Override
     public void equipWeapon() {
-        System.out.println("Equiped");
+
     }
 // Why do i need override methods here?
 
-    @Override
-    public int GetLevel() {
-        return 0;
-    }
+
 
     @Override
     public Slot GetSlot() {
