@@ -21,19 +21,6 @@ public class Weapon extends Item {
         Type = type;
     }
 
-    public boolean Equals(Weapon checker) {
-
-       return name == checker.getName() &&
-               requiredLevel == checker.requiredLevel &&
-               requiredSlot.equals(checker.requiredSlot) &&
-               Damage == checker.Damage &&
-               AttackSpeed == checker.AttackSpeed &&
-               DamagePerSecond == checker.DamagePerSecond &&
-               Type.equals(checker.Type);
-
-
-
-    };
     public  Weapons getWeaponType() {
         return Type;
     }
@@ -42,10 +29,6 @@ public class Weapon extends Item {
     public void equipWeapon() {
 
     }
-// Why do i need override methods here?
-
-
-
     @Override
     public Slot GetSlot() {
         return null;

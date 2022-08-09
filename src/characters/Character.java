@@ -2,6 +2,9 @@ package characters;
 
 
 import attributes.Attributes;
+import characters.classes.Mage;
+import exceptions.InvalidArmorException;
+import exceptions.InvalidWeaponException;
 import items.Armor;
 import items.Item;
 import items.Weapon;
@@ -12,7 +15,7 @@ import utils.Weapons;
 import java.util.HashMap;
 
 
-public abstract class Character implements CanLevel{
+public abstract class Character implements CanLevel, DisplayInterface{
     private String name;
     protected int level;
     // no hard coded value
@@ -43,54 +46,38 @@ public abstract class Character implements CanLevel{
 
     }
 
-    public void printChar(){
-        for(var x : myInventory.entrySet()){
-            System.out.println(x.getValue());
-        }
-        System.out.println(myInventory.size());
-    }
+    public abstract double CalculateDamage();
 
-    public void equipItem (Item item) {
+// Equiping armor
+    public void equipMaterial (Item item) throws InvalidArmorException {
 
         if (level == item.getRequiredLevel()) {
             if (item.getRequiredSlot() != Slot.WEAPON) {
-                for (var mat : heroMaterial) {
-                    if (mat.equals(((Armor) item).getMaterial())) {
+                for (var materialType : heroMaterial) {
+                    if (materialType.equals(((Armor) item).getMaterial())) {
                         myInventory.put(item.GetSlot(), item);
                     }
                 }
-
-            } else if (item.getRequiredSlot() == Slot.WEAPON) {
-                for (var weap : heroWeapons) {
-                    if (weap.equals(((Weapon) item).getWeaponType())) {
-                        myInventory.put(item.GetSlot(), item);
+            } else {
+                throw new InvalidArmorException("Cannot equip");
+            }
+        }
+    }
+    //Equip weapon method
+        public void equipWeapon (Item item) throws InvalidWeaponException {
+            if (level == item.getRequiredLevel()) {
+                if (item.getRequiredSlot() == Slot.WEAPON) {
+                    for (var weaponType : heroWeapons) {
+                        if (weaponType.equals(((Weapon) item).getWeaponType())) {
+                            myInventory.put(item.GetSlot(), item);
+                        }
                     }
+                }else{
+                    throw new InvalidWeaponException("Cannot equip weapon");
                 }
             }
-        }else {
-            System.out.println("level to low");
-        }
 
     }
-
-
-
-
-
-    /**public void armorStats(){
-
-           // if (mat.equals(((Armor) item).getMaterial())) {
-        for (var items : myInventory.entrySet()) {
-            if (items instanceof Armor item) {
-                getArmorAttributes((Armor) items);
-                items.
-            }
-        }
-
-
-    }**/
-
-
     public String getName() {
         return name;
     }
@@ -115,8 +102,6 @@ public abstract class Character implements CanLevel{
     public void setAttributes(Attributes attributes) {
         this.attributes = attributes;
     }
-
-
 
     public Weapons[] getHeroWeapons() {
         return heroWeapons;
@@ -149,4 +134,20 @@ public abstract class Character implements CanLevel{
     public void setTotStatistics(Attributes totStatistics) {
         this.totStatistics = totStatistics;
     }
+
+    @Override
+    public String displayCharacterStats() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Name: "+ this.name);
+        builder.append("\nLevel: " + this.level);
+        builder.append("\nStrength: " + attributes.getStrength());
+        builder.append("\nDexterity: " + attributes.getDexterity());
+        builder.append("\nIntelligence: " + attributes.getIntelligence());
+        builder.append("\nDPS: " + this.dmg);
+        return builder.toString();
+
+    }
+
+    // Calculate weapon damage
+        public abstract double CalculateDamage(Mage mage);
 }

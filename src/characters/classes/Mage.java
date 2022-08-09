@@ -31,21 +31,25 @@ public class Mage extends Character {
         }
     }
 
-   public double CalculateDamage(Mage mage)
-   {
 
-           // If Dictionary not contains the key of enum WEAPON
-           if (mage.myInventory.containsKey(Slot.WEAPON) ==false ) return dmg;
 
-           if(mage.myInventory.containsKey(Slot.WEAPON) != false)
-           {
-               Weapon weapon = (Weapon) myInventory.get(Slot.WEAPON); // Get the weapon in inventory
-               double damage = (double)(weapon.getDamage() * (1 + attributes.getIntelligence() / 100)); // Damage formula
-               return damage;
-           }
+    @Override
+    public double CalculateDamage(Mage mage) {
+        // If Dictionary not contains the key of enum WEAPON
+        if (mage.myInventory.containsKey(Slot.WEAPON) ==false ) return dmg;
 
-           return dmg; // Needed for all code paths
-       }
+        if(mage.myInventory.containsKey(Slot.WEAPON) != false)
+        {
+            Weapon weapon = (Weapon) myInventory.get(Slot.WEAPON); // Get the weapon in inventory
+            double damage = (double)(weapon.getDamage() * (1 + attributes.getIntelligence() / 100)); // Damage formula
+            return damage;
+        }
+
+        return dmg; // Needed for all code paths
+    }
+
+
+    // Calculate weapon damage
 
    }
 
