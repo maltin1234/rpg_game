@@ -10,11 +10,15 @@ import utils.Weapons;
 
 public class Main {
     public static void main(String[] args) {
-        Main obj = new  Main();
+      Character mage = new Mage("JOhan");
+        System.out.println(mage.getLevel());
+        System.out.println(mage.getBaseStatistics());
+      mage.levelUp();
+        System.out.println(mage.getBaseStatistics());
 
-       Mage mage = new Mage("Johan",1);
-       Weapon weapon = new Weapon("Staffs",1,2,3, Weapons.STAFFS);
-        System.out.println(weapon.getDamagePerSecond());
+
+
+
 
 
 

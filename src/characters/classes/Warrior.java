@@ -8,31 +8,31 @@ import utils.Slot;
 import utils.Weapons;
 
 public class Warrior  extends Character {
-    public Warrior(String name, int level, Attributes attributes, Weapons[] heroWeapons, Material[] heroMaterial) {
-        super(name, level, attributes, heroWeapons, heroMaterial);
+
+
+    public Warrior(String name, Attributes baseStatistics) {
+        super(name, new Attributes(5,2,1));
     }
-
-    @Override
-    public double CalculateDamage(Warrior warrior) {
-        // If Dictionary not contains the key of enum WEAPON
-        if (warrior.myInventory.containsKey(Slot.WEAPON) ==false ) return dmg;
-
-        if(warrior.myInventory.containsKey(Slot.WEAPON) != false)
-        {
-            Weapon weapon = (Weapon) myInventory.get(Slot.WEAPON); // Get the weapon in inventory
-            double damage = (double)(weapon.getDamage() * (1 + attributes.getIntelligence() / 100)); // Damage formula
-            return damage;
-        }
-
-        return dmg; // Needed for all code paths
-    }
-
 
     @Override
     public void levelUp() {
-        level++;
-        attributes.setDexterity(attributes.getDexterity() + 2 );
-        attributes.setStrength(attributes.getStrength() + 3 );
-        attributes.setIntelligence(attributes.getIntelligence() + 1 );
+        baseStatistics.setStrength(baseStatistics.getStrength() + 1 );
+        baseStatistics.setDexterity(baseStatistics.getDexterity() + 5 );
+        baseStatistics.setIntelligence(baseStatistics.getIntelligence() + 1 );
+    }
+
+    @Override
+    public void calculateTotalStats() {
+
+    }
+
+    @Override
+    public double calculateCharacterDps() {
+        return 0;
+    }
+
+    @Override
+    public String displayCharacterStats() {
+        return null;
     }
 }

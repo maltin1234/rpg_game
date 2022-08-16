@@ -9,49 +9,49 @@ import utils.Slot;
 import utils.Weapons;
 
 public class Mage extends Character {
-    //public Attributes attributes;
+    public Mage(String name) {
 
-    public Mage(String name, int level) {
-        super(name, level, new Attributes(1,1,8), new Weapons[] {Weapons.WAND, Weapons.STAFFS}, new Material[] {Material.CLOTH});
+
+        super(name, new Attributes(1,1,8));
     }
+
     @Override
     public void levelUp() {
-        level++;
-        attributes.setDexterity(attributes.getDexterity() + 1 );
-        attributes.setStrength(attributes.getStrength() + 1 );
-        attributes.setIntelligence(attributes.getIntelligence() + 5 );
+       level++;
+       baseStatistics.setDexterity(baseStatistics.getDexterity() + 1 );
+       baseStatistics.setStrength(baseStatistics.getStrength() + 1 );
+       baseStatistics.setIntelligence(baseStatistics.getIntelligence() + 5 );
+
+
     }
-
-    public void totalAttribute(Mage mage){
-        for (var item: mage.myInventory.entrySet()
-             ) {
-        if(item instanceof Armor ) {
-
-        }
-        }
-    }
-
-
 
     @Override
-    public double CalculateDamage(Mage mage) {
-        // If Dictionary not contains the key of enum WEAPON
-        if (mage.myInventory.containsKey(Slot.WEAPON) ==false ) return dmg;
+    public void calculateTotalStats() {
 
-        if(mage.myInventory.containsKey(Slot.WEAPON) != false)
-        {
-            Weapon weapon = (Weapon) myInventory.get(Slot.WEAPON); // Get the weapon in inventory
-            double damage = (double)(weapon.getDamage() * (1 + attributes.getIntelligence() / 100)); // Damage formula
-            return damage;
-        }
+    }
 
-        return dmg; // Needed for all code paths
+    @Override
+    public double calculateCharacterDps() {
+        return 0;
+    }
+
+    @Override
+    public String displayCharacterStats() {
+        return null;
     }
 
 
-    // Calculate weapon damage
 
-   }
+
+
+    }
+
+
+
+
+
+
+
 
 
 

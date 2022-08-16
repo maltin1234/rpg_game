@@ -18,41 +18,29 @@ import utils.Weapons;
 import java.util.HashMap;
 
 
-public abstract class Character implements CanLevel, DisplayInterface{
+public abstract class Character implements CanLevel, DisplayInterface, CharacterStats {
     private String name;
-    protected int level;
-    // no hard coded value
-
-
-    protected Attributes attributes;
-
+    protected int level = 1;
     protected Attributes baseStatistics;
-     protected Attributes totStatistics;
-
-
-     protected double dmg = 1;
-
-
+    protected Attributes totStatistics;
+    protected double characterDPs;
 
     Weapons[] heroWeapons;
     Material[] heroMaterial;
 
+    public HashMap<Slot, Item> myInventory = new HashMap<>();
 
-    public HashMap<Slot,Item> myInventory  = new HashMap<>();
-
-    public Character(String name, int level, Attributes attributes, Weapons[] heroWeapons, Material[] heroMaterial) {
+    public Character(String name,Attributes baseStatistics) {
         this.name = name;
-        this.level = level;
-        this.attributes = attributes;
-        this.heroWeapons = heroWeapons;
-        this.heroMaterial = heroMaterial;
+        this.baseStatistics = baseStatistics;
 
     }
 
 
 
-// Equiping armor
-    public void equipMaterial (Item item) throws InvalidArmorException {
+
+    // Equiping armor
+    public void equipMaterial(Item item) throws InvalidArmorException {
 
         if (level == item.getRequiredLevel()) {
             if (item.getRequiredSlot() != Slot.WEAPON) {
@@ -66,21 +54,22 @@ public abstract class Character implements CanLevel, DisplayInterface{
             }
         }
     }
-    //Equip weapon method
-        public void equipWeapon (Item item) throws InvalidWeaponException {
-            if (level == item.getRequiredLevel()) {
-                if (item.getRequiredSlot() == Slot.WEAPON) {
-                    for (var weaponType : heroWeapons) {
-                        if (weaponType.equals(((Weapon) item).getWeaponType())) {
-                            myInventory.put(item.GetSlot(), item);
-                        }
-                    }
-                }else{
-                    throw new InvalidWeaponException("Cannot equip weapon");
-                }
-            }
 
+    //Equip weapon method
+    public void equipWeapon(Item item) throws InvalidWeaponException {
+        if (level == item.getRequiredLevel()) {
+            if (item.getRequiredSlot() == Slot.WEAPON) {
+                for (var weaponType : heroWeapons) {
+                    if (weaponType.equals(((Weapon) item).getWeaponType())) {
+                        myInventory.put(item.GetSlot(), item);
+                    }
+                }
+            } else {
+                throw new InvalidWeaponException("Cannot equip weapon");
+            }
+        }
     }
+
     public String getName() {
         return name;
     }
@@ -97,13 +86,28 @@ public abstract class Character implements CanLevel, DisplayInterface{
         this.level = level;
     }
 
-
-    public Attributes getAttributes() {
-        return attributes;
+    public Attributes getBaseStatistics() {
+        return baseStatistics;
     }
 
-    public void setAttributes(Attributes attributes) {
-        this.attributes = attributes;
+    public void setBaseStatistics(Attributes baseStatistics) {
+        this.baseStatistics = baseStatistics;
+    }
+
+    public Attributes getTotStatistics() {
+        return totStatistics;
+    }
+
+    public void setTotStatistics(Attributes totStatistics) {
+        this.totStatistics = totStatistics;
+    }
+
+    public double getCharacterDPs() {
+        return characterDPs;
+    }
+
+    public void setCharacterDPs(double characterDPs) {
+        this.characterDPs = characterDPs;
     }
 
     public Weapons[] getHeroWeapons() {
@@ -129,34 +133,8 @@ public abstract class Character implements CanLevel, DisplayInterface{
     public void setMyInventory(HashMap<Slot, Item> myInventory) {
         this.myInventory = myInventory;
     }
-
-    public Attributes getTotStatistics() {
-        return totStatistics;
-    }
-
-    public void setTotStatistics(Attributes totStatistics) {
-        this.totStatistics = totStatistics;
-    }
-
-    @Override
-    public String displayCharacterStats() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Name: "+ this.name);
-        builder.append("\nLevel: " + this.level);
-        builder.append("\nStrength: " + attributes.getStrength());
-        builder.append("\nDexterity: " + attributes.getDexterity());
-        builder.append("\nIntelligence: " + attributes.getIntelligence());
-        builder.append("\nDPS: " + this.dmg);
-        return builder.toString();
-
-    }
-
-    // Calculate weapon damage
-        public abstract double CalculateDamage(Mage mage);
-
-    public abstract double CalculateDamage(Ranger ranger);
-
-    public abstract double CalculateDamage(Rogue rogue);
-
-    public abstract double CalculateDamage(Warrior warrior);
 }
+
+
+
+
