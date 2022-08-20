@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d7c291f-5b6c-4aff-84e7-d3731727c095" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/characters/CharacterStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/CharacterTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/characters/CharacterStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/CharacterStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Mage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Ranger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Rogue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/LowLevelException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidArmorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidArmorException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidWeaponException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidWeaponException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/ChooseWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/EquipItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "C:/Users/MCoku1/Desktop/rpg_game",
+    "last_opened_file_path": "C:/Users/MCoku1/Desktop/student-jdbc-spring-boot-example-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659596210088</updated>
       <workItem from="1659596211528" duration="104783000" />
-      <workItem from="1660313273061" duration="10805000" />
+      <workItem from="1660313273061" duration="42655000" />
     </task>
     <servers />
   </component>
@@ -103,5 +107,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="exceptions.InvalidWeaponException" package="exceptions" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

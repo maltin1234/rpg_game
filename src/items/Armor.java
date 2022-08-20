@@ -6,69 +6,72 @@ import utils.Slot;
 
 
 public class Armor extends Item {
-    protected Material material;
-    protected Attributes attributes;
-
-    protected Material Type;
+    protected Material armorType;
+    protected Attributes armorAttributes;
 
 
-    public Material getType() {
-        return Type;
+    public Attributes getArmorAttributes() {
+        return armorAttributes;
     }
 
-    public void setType(Material type) {
-        Type = type;
+    public void setArmorAttributes(Attributes armorAttributes) {
+        this.armorAttributes = armorAttributes;
     }
 
-    public Armor(String name, int requiredLevel, Slot requiredSlot, Material material, Attributes attributes, Material type) {
+
+
+
+    public Armor(String name, int requiredLevel, Slot requiredSlot, Attributes armorAttributes, Material armorType) {
         super(name, requiredLevel, requiredSlot);
-        this.material = material;
-        this.attributes = attributes;
-        Type = type;
+        this.armorType = armorType;
+        this.armorAttributes = armorAttributes;
     }
+
+
+
+
+
     public boolean Equals(Armor checker){
         return name.equals(checker.name) &&
                 requiredLevel == checker.requiredLevel &&
                 requiredSlot.equals(checker.requiredSlot) &&
-                material.equals(checker.material) &&
-                attributes.equals(checker);
+                armorType.equals(checker.armorType) &&
+                armorAttributes.equals(checker);
 
     }
+    public Material getType() {
+        return armorType;
+    }
+
+    public void setType(Slot type) {
+        this.armorType = armorType;
+    }
     public int getMainAttributeMage(){
-        return attributes.getIntelligence();
+        return armorAttributes.getIntelligence();
 
     }
     public int getMainAttributeRanger(){
-        return attributes.getIntelligence();
+        return armorAttributes.getDexterity();
 
     }
     public int getMainAttributeRogue(){
-        return attributes.getIntelligence();
+        return armorAttributes.getDexterity();
 
     }
     public int getMainAttributeWarrior(){
-        return attributes.getIntelligence();
+        return armorAttributes.getStrength();
 
     }
 
-    @Override
-    public void equipWeapon() {
 
+
+    public Material getArmorType() {
+        return armorType;
     }
 
-    public Material getMaterial() {
-        return material;
+    public void setArmorType(Material armorType) {
+        this.armorType = armorType;
     }
 
-    public void setMaterial(Material material) {
-        this.material = material;
-    }
 
-    public Attributes getAttributes() {
-        return attributes;
-    }
-
-    public void setAttributes(Attributes attributes) {
-        this.attributes = attributes;
-    }
 }

@@ -2,9 +2,7 @@ package items;
 
 import utils.Slot;
 
-public interface ChooseWeapon {
-
-    void equipWeapon();
+public interface EquipItems {
 
 
     public Slot GetSlot();

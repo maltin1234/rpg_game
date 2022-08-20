@@ -1,15 +1,14 @@
 package items;
 
 import attributes.Attributes;
-import characters.Character;
 import utils.Slot;
 
-public abstract class Item implements ChooseWeapon {
+public abstract class Item implements EquipItems {
     protected String name;
     protected int requiredLevel;
     protected Slot requiredSlot;
 
-    protected Attributes attributes;
+
 
 
    

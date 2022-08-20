@@ -10,7 +10,7 @@ public class Weapon extends Item {
 
    private int Damage;
    private double AttackSpeed;
-   private double DamagePerSecond;
+   protected double DamagePerSecond;
    protected Weapons Type;
 
     public Weapon(String name, int requiredLevel, int damage, double attackSpeed, Weapons type) {
@@ -25,13 +25,10 @@ public class Weapon extends Item {
         return Type;
     }
 
-    @Override
-    public void equipWeapon() {
 
-    }
     @Override
     public Slot GetSlot() {
-        return null;
+        return requiredSlot;
     }
 
     public int getDamage() {

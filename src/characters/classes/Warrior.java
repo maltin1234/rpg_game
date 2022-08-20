@@ -2,16 +2,16 @@ package characters.classes;
 
 import attributes.Attributes;
 import characters.Character;
-import items.Weapon;
 import utils.Material;
-import utils.Slot;
 import utils.Weapons;
+
+import java.util.List;
 
 public class Warrior  extends Character {
 
 
     public Warrior(String name, Attributes baseStatistics) {
-        super(name, new Attributes(5,2,1));
+        super(name, new Attributes(5,2,1), List.of(Weapons.AXES), List.of(Material.PLATE));
     }
 
     @Override
@@ -22,8 +22,14 @@ public class Warrior  extends Character {
     }
 
     @Override
-    public void calculateTotalStats() {
+    protected int getMainPrimaryAttribute() {
+        return baseStatistics.getDexterity();
+    }
 
+    @Override
+    public Attributes calculateTotalStats() {
+
+        return null;
     }
 
     @Override

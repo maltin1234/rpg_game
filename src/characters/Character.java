@@ -2,10 +2,6 @@ package characters;
 
 
 import attributes.Attributes;
-import characters.classes.Mage;
-import characters.classes.Ranger;
-import characters.classes.Rogue;
-import characters.classes.Warrior;
 import exceptions.InvalidArmorException;
 import exceptions.InvalidWeaponException;
 import items.Armor;
@@ -15,7 +11,9 @@ import utils.Material;
 import utils.Slot;
 import utils.Weapons;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 public abstract class Character implements CanLevel, DisplayInterface, CharacterStats {
@@ -25,49 +23,81 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
     protected Attributes totStatistics;
     protected double characterDPs;
 
-    Weapons[] heroWeapons;
-    Material[] heroMaterial;
+    protected List<Weapons> validWeaponType = new ArrayList<>();
+    protected List<Material> validMaterialType = new ArrayList<>();
 
     public HashMap<Slot, Item> myInventory = new HashMap<>();
 
-    public Character(String name,Attributes baseStatistics) {
+    public Character(String name, Attributes baseStatistics,List<Weapons> validWeaponType, List<Material> validMaterialType) {
         this.name = name;
         this.baseStatistics = baseStatistics;
+        this.validWeaponType = validWeaponType;
+        this.validMaterialType = validMaterialType;
+    }
+    protected abstract int getMainPrimaryAttribute();
 
+
+
+
+    public  Attributes calculateTotalStats(){
+
+     var strength = 0;
+     var intelligence = 0;
+     var dexterity = 0;
+            for (var armorItem: myInventory.entrySet()){
+                if (armorItem instanceof Armor armor){
+                    strength += armor.getArmorAttributes().getStrength() + baseStatistics.getStrength();
+                    intelligence += armor.getArmorAttributes().getIntelligence() + baseStatistics.getIntelligence();
+                    dexterity += armor.getArmorAttributes().getDexterity() + baseStatistics.getDexterity();
+                }
+
+            }
+            Attributes totStats = new Attributes(strength,dexterity,intelligence);
+        return  totStats;
     }
 
 
+    // If weapon then call function checkWeapon to further error handling
+    // If item then call function checkMaterial to further error handling
+    public void equipMaterial(Item item) throws InvalidWeaponException, InvalidArmorException {
+        if(item.GetSlot() == Slot.WEAPON){
 
+            checkWeaponSlot(item);
+        }else {
+            checkMaterialSlot(item);
+        }
+    myInventory.put(item.GetSlot(), item);
 
-    // Equiping armor
-    public void equipMaterial(Item item) throws InvalidArmorException {
-
-        if (level == item.getRequiredLevel()) {
-            if (item.getRequiredSlot() != Slot.WEAPON) {
-                for (var materialType : heroMaterial) {
-                    if (materialType.equals(((Armor) item).getMaterial())) {
-                        myInventory.put(item.GetSlot(), item);
-                    }
-                }
-            } else {
-                throw new InvalidArmorException("Cannot equip");
-            }
+}
+// Throw exceptions if the user can not equip material
+    private void checkMaterialSlot(Item item) throws InvalidArmorException {
+        Material type = (((Armor) item).getType());
+        boolean canEquip = validMaterialType.contains(type);
+        if(level < item.getRequiredLevel()) {
+            throw new InvalidArmorException("Level to high");
+        }
+        if(!canEquip){
+            throw new InvalidArmorException("You cannot equip" + "" + type);
+        }
+    }
+// Checking if user can equip weapons if user can not equip then throw error
+    private void checkWeaponSlot(Item item) throws InvalidWeaponException {
+        Weapons type = (((Weapon) item).getWeaponType());
+        boolean canEquip = validWeaponType.contains(type);
+        if(level < item.getRequiredLevel()) {
+            throw new InvalidWeaponException("Level to high");
+        }
+        if(!canEquip){
+            throw new InvalidWeaponException("You cannot equip" + "" + type);
         }
     }
 
-    //Equip weapon method
-    public void equipWeapon(Item item) throws InvalidWeaponException {
-        if (level == item.getRequiredLevel()) {
-            if (item.getRequiredSlot() == Slot.WEAPON) {
-                for (var weaponType : heroWeapons) {
-                    if (weaponType.equals(((Weapon) item).getWeaponType())) {
-                        myInventory.put(item.GetSlot(), item);
-                    }
-                }
-            } else {
-                throw new InvalidWeaponException("Cannot equip weapon");
-            }
-        }
+    public HashMap<Slot, Item> getMyInventory() {
+        return myInventory;
+    }
+
+    public void setMyInventory(HashMap<Slot, Item> myInventory) {
+        this.myInventory = myInventory;
     }
 
     public String getName() {
@@ -110,28 +140,20 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
         this.characterDPs = characterDPs;
     }
 
-    public Weapons[] getHeroWeapons() {
-        return heroWeapons;
+    public List<Weapons> getValidWeaponType() {
+        return validWeaponType;
     }
 
-    public void setHeroWeapons(Weapons[] heroWeapons) {
-        this.heroWeapons = heroWeapons;
+    public void setValidWeaponType(List<Weapons> validWeaponType) {
+        this.validWeaponType = validWeaponType;
     }
 
-    public Material[] getHeroMaterial() {
-        return heroMaterial;
+    public List<Material> getValidMaterialType() {
+        return validMaterialType;
     }
 
-    public void setHeroMaterial(Material[] heroMaterial) {
-        this.heroMaterial = heroMaterial;
-    }
-
-    public HashMap<Slot, Item> getMyInventory() {
-        return myInventory;
-    }
-
-    public void setMyInventory(HashMap<Slot, Item> myInventory) {
-        this.myInventory = myInventory;
+    public void setValidMaterialType(List<Material> validMaterialType) {
+        this.validMaterialType = validMaterialType;
     }
 }
 

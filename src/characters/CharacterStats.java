@@ -1,6 +1,8 @@
 package characters;
 
+import attributes.Attributes;
+
 public interface CharacterStats {
-    void calculateTotalStats();
+    Attributes calculateTotalStats();
     double calculateCharacterDps();
 }

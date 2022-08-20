@@ -1,9 +1,8 @@
 package exceptions;
 
-public class InvalidWeaponException extends Throwable {
-
+public class InvalidWeaponException extends RuntimeException {
     public InvalidWeaponException(String message) {
         super(message);
-
     }
+
 }

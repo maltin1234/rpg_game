@@ -2,17 +2,16 @@ package characters.classes;
 
 import attributes.Attributes;
 import characters.Character;
-import items.Armor;
-import items.Weapon;
 import utils.Material;
-import utils.Slot;
 import utils.Weapons;
+
+import java.util.List;
 
 public class Mage extends Character {
     public Mage(String name) {
 
 
-        super(name, new Attributes(1,1,8));
+        super(name, new Attributes(1,1,8), List.of(Weapons.AXES),List.of(Material.CLOTH) );
     }
 
     @Override
@@ -26,12 +25,19 @@ public class Mage extends Character {
     }
 
     @Override
-    public void calculateTotalStats() {
+    protected int getMainPrimaryAttribute() {
+        return baseStatistics.getIntelligence();
+    }
 
+    @Override
+    public Attributes calculateTotalStats() {
+
+        return null;
     }
 
     @Override
     public double calculateCharacterDps() {
+
         return 0;
     }
 
