@@ -27,6 +27,11 @@ public class Warrior  extends Character {
     }
 
     @Override
+    protected double calculateTotalMainAttribute() {
+        return calculateTotalStats().getStrength();
+    }
+
+    @Override
     public Attributes calculateTotalStats() {
 
         return null;

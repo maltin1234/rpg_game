@@ -6,19 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2d7c291f-5b6c-4aff-84e7-d3731727c095" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/characters/CharacterStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/CharacterStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Mage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Ranger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Rogue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidArmorException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidArmorException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidWeaponException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidWeaponException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/ChooseWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/EquipItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Weapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +44,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "C:/Users/MCoku1/Desktop/student-jdbc-spring-boot-example-main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MCoku1/Desktop/student-jdbc-spring-boot-example-main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -90,7 +82,8 @@
       <option name="presentableId" value="Default" />
       <updated>1659596210088</updated>
       <workItem from="1659596211528" duration="104783000" />
-      <workItem from="1660313273061" duration="42655000" />
+      <workItem from="1660313273061" duration="43107000" />
+      <workItem from="1661108518575" duration="3056000" />
     </task>
     <servers />
   </component>

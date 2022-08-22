@@ -35,7 +35,7 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
         this.validMaterialType = validMaterialType;
     }
     protected abstract int getMainPrimaryAttribute();
-
+    protected abstract double calculateTotalMainAttribute();
 
 
 
@@ -53,6 +53,8 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
 
             }
             Attributes totStats = new Attributes(strength,dexterity,intelligence);
+
+
         return  totStats;
     }
 
@@ -133,7 +135,16 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
     }
 
     public double getCharacterDPs() {
-        return characterDPs;
+        double mainAttribute = getMainPrimaryAttribute();
+        mainAttribute += calculateTotalMainAttribute();
+
+        if (myInventory.get(Slot.WEAPON ) != null){
+            return ((Weapon) myInventory.get(Slot.WEAPON)).getDamagePerSecond() * (1 + mainAttribute / 100);
+
+        }else{
+            return (1 + mainAttribute / 100);
+        }
+
     }
 
     public void setCharacterDPs(double characterDPs) {

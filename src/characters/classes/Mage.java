@@ -30,10 +30,10 @@ public class Mage extends Character {
     }
 
     @Override
-    public Attributes calculateTotalStats() {
-
-        return null;
+    protected double calculateTotalMainAttribute() {
+        return calculateTotalStats().getStrength();
     }
+
 
     @Override
     public double calculateCharacterDps() {
