@@ -10,7 +10,7 @@ import java.util.List;
 public class Ranger extends Character {
 
 
-    public Ranger(String name, Attributes baseStatistics) {
+    public Ranger(String name) {
         super(name, new Attributes(1,7,7), List.of(Weapons.AXES), List.of(Material.PLATE));
     }
 

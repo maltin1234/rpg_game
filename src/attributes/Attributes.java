@@ -5,6 +5,33 @@ public class Attributes {
     private int Dexterity;
     private int Intelligence;
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Attributes)) {
+            return false;
+        }
+        Attributes attrObj = (Attributes) obj;
+        // compare your values, returning false if they don't match
+        // one example:
+
+        if (this.Strength != attrObj.Strength) {
+            return false;
+        }
+        if (this.Dexterity != attrObj.Dexterity) {
+            return false;
+        }
+        if (this.Intelligence != attrObj.Intelligence) {
+            return false;
+        }
+        // here, you would add your other comparisons and then finally, if all of them pass:
+        return true;
+    }
+
+
+
     public Attributes(int strength, int dexterity, int intelligence) {
         Strength = strength;
         Dexterity = dexterity;

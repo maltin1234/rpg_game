@@ -10,8 +10,8 @@ import java.util.List;
 public class Warrior  extends Character {
 
 
-    public Warrior(String name, Attributes baseStatistics) {
-        super(name, new Attributes(5,2,1), List.of(Weapons.AXES), List.of(Material.PLATE));
+    public Warrior(String name) {
+        super(name, new Attributes(5,2,1), List.of(Weapons.AXES,Weapons.SWORDS, Weapons.HAMMERS), List.of(Material.PLATE));
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Warrior  extends Character {
 
     @Override
     protected int getMainPrimaryAttribute() {
-        return baseStatistics.getDexterity();
+        return baseStatistics.getStrength();
     }
 
     @Override
@@ -31,11 +31,7 @@ public class Warrior  extends Character {
         return calculateTotalStats().getStrength();
     }
 
-    @Override
-    public Attributes calculateTotalStats() {
 
-        return null;
-    }
 
     @Override
     public double calculateCharacterDps() {

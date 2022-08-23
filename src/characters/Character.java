@@ -52,10 +52,9 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
                 }
 
             }
-            Attributes totStats = new Attributes(strength,dexterity,intelligence);
 
 
-        return  totStats;
+        return new Attributes(strength,dexterity,intelligence);
     }
 
 

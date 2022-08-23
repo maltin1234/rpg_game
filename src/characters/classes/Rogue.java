@@ -10,7 +10,7 @@ import java.util.List;
 public class Rogue extends Character {
 
 
-    public Rogue(String name, Attributes baseStatistics) {
+    public Rogue(String name) {
         super(name, new Attributes(2,6,1), List.of(Weapons.AXES), List.of(Material.PLATE));
     }
 
