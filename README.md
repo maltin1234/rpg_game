@@ -18,7 +18,7 @@ Start by choosing between four hero classes. Mage, Ranger, Rogue and Warrior. Ev
 - Manually import into your own project
 - Run tests, add JUnit5 to project. Can be done in Intellij by ctrl + alt + shit + s -> project -> libraries ->
 plus sign (add) -> From Maven... -> search for org.junit.jupiter:junit-jupiter:5.8.1 and ok. 
-
+```
 ## Usage
 
 Sample code to for character
