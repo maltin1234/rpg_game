@@ -21,7 +21,7 @@ plus sign (add) -> From Maven... -> search for org.junit.jupiter:junit-jupiter:5
 ```
 ## Usage
 
-Sample code to for character
+Sample code  for character
 ```
 Character mage = new Mage("Mega Mage");
         //mage.getLevel(); // -> 1
