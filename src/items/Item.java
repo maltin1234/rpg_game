@@ -1,6 +1,6 @@
 package items;
 
-import attributes.Attributes;
+
 import utils.Slot;
 
 public abstract class Item implements EquipItems {

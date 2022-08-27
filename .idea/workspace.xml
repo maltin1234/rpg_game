@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d7c291f-5b6c-4aff-84e7-d3731727c095" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tests/CharacterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/EquipmentTest.java" afterDir="false" />
+    <list default="true" id="2d7c291f-5b6c-4aff-84e7-d3731727c095" name="Changes" comment="chore: added tests for equipment and Weapons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpg_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rpg_game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/attributes/Attributes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/attributes/Attributes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/characters/classes/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Mage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Ranger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Ranger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Rogue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/characters/classes/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/characters/classes/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/items/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/items/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/EquipmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/EquipmentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +68,8 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -88,8 +90,16 @@
       <updated>1659596210088</updated>
       <workItem from="1659596211528" duration="104783000" />
       <workItem from="1660313273061" duration="43107000" />
-      <workItem from="1661108518575" duration="26183000" />
+      <workItem from="1661108518575" duration="47643000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: added tests for equipment and Weapons">
+      <created>1661270207913</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661270207913</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +116,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore: added tests for equipment and Weapons" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: added tests for equipment and Weapons" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -113,6 +127,11 @@
           <properties class="exceptions.InvalidWeaponException" package="exceptions" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/tests/EquipmentTest.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

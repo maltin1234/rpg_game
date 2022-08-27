@@ -1,8 +1,7 @@
 package tests;
 
 import attributes.Attributes;
-import characters.Character;
-import characters.classes.Mage;
+
 import characters.classes.Warrior;
 import exceptions.InvalidArmorException;
 import exceptions.InvalidWeaponException;
@@ -22,16 +21,16 @@ public class EquipmentTest {
 
     @Test
     public void EquipItem_WeaponRequiredLevelToHigh_Exception(){
-        Mage mage = new Mage("jonas");
+        Warrior warrior = new Warrior("jonas");
         Item weapon = new Weapon("JOna",10, 200, 1, Weapons.AXES);
-        assertThrows(InvalidWeaponException.class, () -> mage.equipMaterial(weapon));
+        assertThrows(InvalidWeaponException.class, () -> warrior.equipMaterial(weapon));
 
     }
     @Test
     public void EquipItem_ArmorRequiredLevelToHigh_Exception(){
-        Mage mage = new Mage("jonas");
-        Item armor = new Armor("Jo",4,Slot.HEAD,new Attributes(2,2,13), Material.CLOTH);
-        assertThrows(InvalidArmorException.class, () -> mage.equipMaterial(armor));
+        Warrior warrior = new Warrior("jonas");
+        Item armor = new Armor("Jo",4,Slot.BODY,new Attributes(2,2,13), Material.PLATE);
+        assertThrows(InvalidArmorException.class, () -> warrior.equipMaterial(armor));
 
     }
     @Test
@@ -52,7 +51,7 @@ public class EquipmentTest {
     @Test
     public void GetDps_NothingEquipped_CorrectDps(){
         Warrior warrior = new Warrior("The lich");
-        double expected = (1+ 5.0 / 100);
+        double expected = (1 + 5.0 / 100);
         double actual = warrior.getCharacterDPs();
 
         assertEquals(expected, actual);
@@ -60,12 +59,23 @@ public class EquipmentTest {
     @Test
     public void GetDps_OnlyWeaponEquiped_CorrectDps(){
         Warrior warrior = new Warrior("warr");
-        Item weapon = new Weapon("Thoria elbow",1,200,1.1,Weapons.SWORDS);
+        Item weapon = new Weapon("Thoria elbow",1,200,1,Weapons.SWORDS);
         warrior.equipMaterial(weapon);
 
-        double expected = (200)* (1.1 + 5.0 / 100);
+        double expected = (200)* (1 + 5.0 / 100);
         double actual = warrior.getCharacterDPs();
         assertEquals(expected, actual);
+    }
+    @Test
+    public void GetDPs_ArmorAndWeaponEquiped_CorrectDps(){
+        Warrior warrior = new Warrior("The jones");
+        Item headArmor = new Armor("helm", 1,Slot.HEAD,new Attributes(2,2,1),Material.PLATE);
+        Item weapon = new Weapon("Thoria elbow",1,200,1.5,Weapons.SWORDS);
+        warrior.equipMaterial(weapon);
+        warrior.equipMaterial(headArmor);
+        double expected = (200 * 1.5) * (1 + ((2.0 + 5.0) / 100));
+        double actual = warrior.getCharacterDPs();
+        assertEquals(expected,actual);
     }
 
 

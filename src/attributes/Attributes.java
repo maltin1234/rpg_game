@@ -23,11 +23,8 @@ public class Attributes {
         if (this.Dexterity != attrObj.Dexterity) {
             return false;
         }
-        if (this.Intelligence != attrObj.Intelligence) {
-            return false;
-        }
+        return this.Intelligence == attrObj.Intelligence;
         // here, you would add your other comparisons and then finally, if all of them pass:
-        return true;
     }
 
 

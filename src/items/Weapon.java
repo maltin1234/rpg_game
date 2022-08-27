@@ -1,28 +1,27 @@
 package items;
 
-import characters.Character;
 import utils.Slot;
 import utils.Weapons;
 
-import javax.lang.model.element.Name;
+
 
 public class Weapon extends Item {
 
    private int Damage;
    private double AttackSpeed;
    protected double DamagePerSecond;
-   protected Weapons Type;
+   protected Weapons weaponsType;
 
-    public Weapon(String name, int requiredLevel, int damage, double attackSpeed, Weapons type) {
+    public Weapon(String name, int requiredLevel, int damage, double attackSpeed, Weapons weaponsType) {
         super(name, requiredLevel, Slot.WEAPON);
         Damage = damage;
         AttackSpeed = attackSpeed;
         DamagePerSecond = damage * attackSpeed;
-        Type = type;
+        this.weaponsType = weaponsType;
     }
 
     public  Weapons getWeaponType() {
-        return Type;
+        return weaponsType;
     }
 
 
@@ -55,11 +54,11 @@ public class Weapon extends Item {
         DamagePerSecond = damagePerSecond;
     }
 
-    public Weapons getType() {
-        return Type;
+    public Weapons getWeaponsType() {
+        return weaponsType;
     }
 
-    public void setType(Weapons type) {
-        Type = type;
+    public void setWeaponsType(Weapons weaponsType) {
+        this.weaponsType = weaponsType;
     }
 }

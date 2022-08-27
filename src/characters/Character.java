@@ -1,6 +1,4 @@
 package characters;
-
-
 import attributes.Attributes;
 import exceptions.InvalidArmorException;
 import exceptions.InvalidWeaponException;
@@ -10,35 +8,38 @@ import items.Weapon;
 import utils.Material;
 import utils.Slot;
 import utils.Weapons;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 
 public abstract class Character implements CanLevel, DisplayInterface, CharacterStats {
+    // Fields
     private String name;
     protected int level = 1;
     protected Attributes baseStatistics;
     protected Attributes totStatistics;
     protected double characterDPs;
 
-    protected List<Weapons> validWeaponType = new ArrayList<>();
-    protected List<Material> validMaterialType = new ArrayList<>();
+    protected List<Weapons> validWeaponType ;
+    protected List<Material> validMaterialType;
 
     public HashMap<Slot, Item> myInventory = new HashMap<>();
-
+// Constructor
     public Character(String name, Attributes baseStatistics,List<Weapons> validWeaponType, List<Material> validMaterialType) {
         this.name = name;
         this.baseStatistics = baseStatistics;
         this.validWeaponType = validWeaponType;
         this.validMaterialType = validMaterialType;
     }
+    // Abstract methods
     protected abstract int getMainPrimaryAttribute();
     protected abstract double calculateTotalMainAttribute();
 
-
-
+    /**
+     * Calculate total attributes if armor is equiped and weapon equiped
+     * Accessing calculateTotalStats in Character classes
+     */
     public  Attributes calculateTotalStats(){
 
      var strength = 0;
@@ -58,8 +59,12 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
     }
 
 
-    // If weapon then call function checkWeapon to further error handling
-    // If item then call function checkMaterial to further error handling
+    /**
+     *
+     * @param item
+     * @throws InvalidWeaponException
+     * @throws InvalidArmorException
+     */
     public void equipMaterial(Item item) throws InvalidWeaponException, InvalidArmorException {
         if(item.GetSlot() == Slot.WEAPON){
 
@@ -70,7 +75,12 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
     myInventory.put(item.GetSlot(), item);
 
 }
-// Throw exceptions if the user can not equip material
+
+    /**
+     * Check if it is possible to equip armor
+     * @param item
+     * @throws InvalidArmorException
+     */
     private void checkMaterialSlot(Item item) throws InvalidArmorException {
         Material type = (((Armor) item).getType());
         boolean canEquip = validMaterialType.contains(type);
@@ -81,9 +91,14 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
             throw new InvalidArmorException("You cannot equip" + "" + type);
         }
     }
-// Checking if user can equip weapons if user can not equip then throw error
+
+    /**
+     * If weapon can not be equiped
+     * @param item
+     * @throws InvalidWeaponException
+     */
     private void checkWeaponSlot(Item item) throws InvalidWeaponException {
-        Weapons type = (((Weapon) item).getWeaponType());
+        Weapons type = (((Weapon) item).getWeaponsType());
         boolean canEquip = validWeaponType.contains(type);
         if(level < item.getRequiredLevel()) {
             throw new InvalidWeaponException("Level to high");
@@ -93,6 +108,27 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
         }
     }
 
+    /**
+     * Get values from character classes and return character dps
+     * @return
+     */
+    public double getCharacterDPs() {
+        double mainAttribute = getMainPrimaryAttribute();
+        mainAttribute += calculateTotalMainAttribute();
+
+        if (myInventory.get(Slot.WEAPON ) != null){
+            return ((Weapon) myInventory.get(Slot.WEAPON)).getDamagePerSecond() * (1 + mainAttribute / 100);
+
+        }
+        else{
+            return (1 + mainAttribute / 100);
+        }
+
+    }
+
+    /**
+     * Getters and setter
+     */
     public HashMap<Slot, Item> getMyInventory() {
         return myInventory;
     }
@@ -133,18 +169,6 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
         this.totStatistics = totStatistics;
     }
 
-    public double getCharacterDPs() {
-        double mainAttribute = getMainPrimaryAttribute();
-        mainAttribute += calculateTotalMainAttribute();
-
-        if (myInventory.get(Slot.WEAPON ) != null){
-            return ((Weapon) myInventory.get(Slot.WEAPON)).getDamagePerSecond() * (1 + mainAttribute / 100);
-
-        }else{
-            return (1 + mainAttribute / 100);
-        }
-
-    }
 
     public void setCharacterDPs(double characterDPs) {
         this.characterDPs = characterDPs;
@@ -161,7 +185,6 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
     public List<Material> getValidMaterialType() {
         return validMaterialType;
     }
-
     public void setValidMaterialType(List<Material> validMaterialType) {
         this.validMaterialType = validMaterialType;
     }

@@ -8,12 +8,17 @@ import utils.Weapons;
 import java.util.List;
 
 public class Ranger extends Character {
-
-
+    /**
+     * Constructor
+     * @param name
+     */
     public Ranger(String name) {
-        super(name, new Attributes(1,7,7), List.of(Weapons.AXES), List.of(Material.PLATE));
+        super(name, new Attributes(1,7,1), List.of(Weapons.AXES), List.of(Material.PLATE));
     }
-
+    /**
+     * Level up Ranger
+     * Update attributes values
+     */
     @Override
     public void levelUp() {
         level++;
@@ -23,11 +28,19 @@ public class Ranger extends Character {
 
     }
 
+    /**
+     * Get character main attribute
+     */
     @Override
     protected int getMainPrimaryAttribute() {
         return baseStatistics.getDexterity();
     }
-
+    /**
+     * Get strength from heroes (calculateTotalStats attribute)
+     * Character class calculateStats gives total attributes with armor equipped
+     * Access  one of the total main attributes here
+     * @return
+     */
     @Override
     protected double calculateTotalMainAttribute() {
         return calculateTotalStats().getStrength();
@@ -36,12 +49,12 @@ public class Ranger extends Character {
     @Override
     public Attributes calculateTotalStats() {
 
-        return null;
+        return calculateTotalStats();
     }
 
     @Override
     public double calculateCharacterDps() {
-        return 0;
+       return characterDPs;
     }
 
     @Override

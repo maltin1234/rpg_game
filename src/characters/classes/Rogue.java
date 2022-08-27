@@ -9,11 +9,17 @@ import java.util.List;
 
 public class Rogue extends Character {
 
-
+    /**
+     * Constructor
+     * @param name
+     */
     public Rogue(String name) {
         super(name, new Attributes(2,6,1), List.of(Weapons.AXES), List.of(Material.PLATE));
     }
-
+    /**
+     * Level up Rogue
+     * Update attributes values
+     */
     @Override
     public void levelUp() {
         baseStatistics.setStrength(baseStatistics.getStrength() + 1 );
@@ -34,13 +40,14 @@ public class Rogue extends Character {
     @Override
     public Attributes calculateTotalStats() {
 
-        return null;
+        return calculateTotalStats();
     }
 
     @Override
     public double calculateCharacterDps() {
-        return 0;
+        return characterDPs;
     }
+
 
     @Override
     public String displayCharacterStats() {
