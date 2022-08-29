@@ -36,6 +36,7 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
     protected abstract int getMainPrimaryAttribute();
     protected abstract double calculateTotalMainAttribute();
 
+
     /**
      * Calculate total attributes if armor is equiped and weapon equiped
      * Accessing calculateTotalStats in Character classes
@@ -57,7 +58,15 @@ public abstract class Character implements CanLevel, DisplayInterface, Character
 
         return new Attributes(strength,dexterity,intelligence);
     }
-
+    //Displays your hero name, level and current attributes from hero and armor.
+    public String getHeroInfo() {
+        return "Name: " + name + "\n" +
+                "Level: " + level + "\n" +
+                "Total Attributes:\n" +
+                "Strength: " + calculateTotalStats().getStrength() + "\n" +
+                "Dexterity: " + calculateTotalStats().getDexterity() + "\n" +
+                "Intelligence: " + calculateTotalStats().getIntelligence() + "\n";
+    }
 
     /**
      *

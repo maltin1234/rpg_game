@@ -26,19 +26,6 @@ public class Armor extends Item {
         this.armorType = armorType;
         this.armorAttributes = armorAttributes;
     }
-
-
-
-
-
-    public boolean Equals(Armor checker){
-        return name.equals(checker.name) &&
-                requiredLevel == checker.requiredLevel &&
-                requiredSlot.equals(checker.requiredSlot) &&
-                armorType.equals(checker.armorType) &&
-                armorAttributes.equals(checker);
-
-    }
     public Material getType() {
         return armorType;
     }

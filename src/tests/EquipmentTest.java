@@ -2,6 +2,7 @@ package tests;
 
 import attributes.Attributes;
 
+import characters.Character;
 import characters.classes.Warrior;
 import exceptions.InvalidArmorException;
 import exceptions.InvalidWeaponException;
@@ -33,6 +34,58 @@ public class EquipmentTest {
         assertThrows(InvalidArmorException.class, () -> warrior.equipMaterial(armor));
 
     }
+    @Test
+    public void EquipItem_CorrectArmorType_SuccessfullyEquiped() {
+        //Arrange
+        Character warrior = new Warrior("The");
+        Item armor = new Armor("Jo",1,Slot.BODY,new Attributes(20,2,1), Material.PLATE);
+        warrior.equipMaterial(armor);
+
+        //Gets all the hero equipment
+        var equipment = warrior.myInventory;
+
+        //Act
+        boolean expected = true;
+        boolean actual = false;
+
+        //Looks for the created item in the hero equipment, and sets to true if it exists
+        for (var item : equipment.entrySet()) {
+            if (armor.equals(item.getValue())) {
+                actual = true;
+                break;
+            }
+        }
+
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void EquipItem_CorrectWeaponType_SuccessfullyEquiped() {
+        //Arrange
+        Character warrior = new Warrior("Gandalf");
+        Item weapon = new Weapon("JOna",1, 200, 1, Weapons.SWORDS);
+        warrior.equipMaterial(weapon);
+        //Gets all the hero equipment
+        var equipment = warrior.myInventory;
+
+        //Act
+        boolean expected = true;
+        boolean actual = false;
+        //Looks for the created item in the hero equipment, and sets to true if it exists
+        for (var item : equipment.entrySet()) {
+            if (weapon.equals(item.getValue())) {
+                actual = true;
+                break;
+            }
+        }
+
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+
     @Test
     public void EquipItem_WrongWeaponType_ExceptionThrown(){
         Warrior warr = new Warrior("Aajaj");

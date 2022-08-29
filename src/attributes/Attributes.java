@@ -5,6 +5,11 @@ public class Attributes {
     private int Dexterity;
     private int Intelligence;
 
+    /**
+     * For testing attributes in tests
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
